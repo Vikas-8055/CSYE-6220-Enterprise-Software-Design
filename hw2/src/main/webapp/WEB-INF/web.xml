@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+   xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd"
+   version="6.0">
+    
+    <display-name>HW2 - CSV, Excel, Tuition Waiver, and Shopping Cart</display-name>
+    
+    <!-- Part 5 Security Constraint -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Excel Reader</web-resource-name>
+            <url-pattern>/readexcel.xls</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <!-- Part 6 Security Constraint -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Protected Tuition Waiver Form</web-resource-name>
+            <url-pattern>/processTuition</url-pattern>
+            <url-pattern>/tuitionWaiver.html</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+        </auth-constraint>
+    </security-constraint>
+    
+    <!-- Login Configuration - BASIC Authentication -->
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>HW2 Application Realm</realm-name>
+    </login-config>
+    
+    <!-- Security Roles -->
+    <security-role>
+        <role-name>user</role-name>
+    </security-role>
+    
+    <!-- Part 7: Customer Role (for Shopping Cart) -->
+    <security-role>
+        <role-name>customer</role-name>
+    </security-role>
+    
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+</web-app>

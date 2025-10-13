@@ -1,0 +1,170 @@
+================================================================================
+HW2 
+================================================================================
+
+Student Name: Vikas Meneni
+NUID: 002309537
+
+================================================================================
+PROJECT STRUCTURE
+================================================================================
+
+Source Files (src/main/java/com/mycompany/hw2/):
+    - CartItem.java
+    - CsvReaderServlet.java
+    - ExcelReaderServlet.java
+    - LoginProcessServlet.java
+    - ShoppingCartServlet.java
+    - TuitionWaiverServlet.java
+
+Web Pages (src/main/webapp/):
+    - catalog.html
+    - index.html
+    - login.jsp
+    - tuitionWaiver.html
+    - WEB-INF/
+        ├── web.xml
+        └── data/
+                ├── parking_facilities.csv
+                └── store.xls
+
+Configuration:
+    - pom.xml
+
+================================================================================
+TOMCAT USER CONFIGURATION
+================================================================================
+
+Before running, add to tomcat-users.xml:
+
+Location: <TOMCAT_HOME>/conf/tomcat-users.xml
+
+Add these lines before </tomcat-users>:
+
+    <!-- For NetBeans deployment -->
+    <role rolename="manager-script"/>
+    <user username="admin" password="admin" roles="manager-script"/>
+    
+    <!-- For application authentication (Parts 5 & 6) -->
+    <role rolename="user"/>
+    <user username="student" password="password123" roles="user"/>
+
+Save the file and RESTART Tomcat.
+
+NETBEANS CONFIGURATION:
+-----------------------
+1. Services tab → Right-click Apache Tomcat → Properties
+2. Username: admin
+3. Password: admin
+4. Click OK
+
+================================================================================
+HOW TO RUN THE PROJECT
+================================================================================
+
+1. Open the project in NetBeans
+2. Right-click on PROJECT NAME (hw2-1.0-SNAPSHOT) and select "Clean and Build"
+3. Wait for "BUILD SUCCESS" in the Output window
+4. Verify Tomcat server is running:
+      - Go to Services tab (Window → Services)
+      - Expand "Servers"
+      - Check if Apache Tomcat shows a green arrow (running)
+      - If not running, right-click Apache Tomcat → Start
+5. Right-click on PROJECT NAME (hw2-1.0-SNAPSHOT)
+6. Select "Run" or press F6
+7. Wait for "OK - Deployed application at context path [/hw2]"
+8. Access each part using the URLs below
+
+================================================================================
+LOGIN CREDENTIALS SUMMARY
+================================================================================
+
+Part 4: No login required
+Part 5: student / password123 (Browser popup)
+Part 6: student / password123 (Browser popup)
+Part 7: customer / shop123 (Custom HTML login page)
+
+Note: Parts 5 and 6 share the same credentials. Testing Part 5 first will
+authenticate you for Part 6 automatically (no second popup). This is correct
+behavior for BASIC authentication.
+
+================================================================================
+TESTING URLS
+================================================================================
+
+PART 4 - CSV FILE READER:
+-------------------------
+URL: http://localhost:8080/hw2/index.html
+Security: None
+
+Steps:
+1. Form displays with textbox
+2. Default filename: parking_facilities.csv
+3. Click "Read CSV File"
+4. CSV data displays in table
+
+---
+
+PART 5 - EXCEL FILE READER:
+---------------------------
+URL: http://localhost:8080/hw2/readexcel.xls
+Security: Declarative (Browser popup)
+Login: student / password123
+
+Steps:
+1. Browser authentication popup appears
+2. Enter username and password
+3. Excel data from store.xls displays in table
+
+Note: After logging in here, Part 6 will not require login again in the same
+browser session (shared authentication).
+
+---
+
+PART 6 - TUITION WAIVER FORM:
+------------------------------
+URL: http://localhost:8080/hw2/tuitionWaiver.html
+Security: Declarative (Browser popup)
+Login: student / password123
+
+Steps:
+1. Browser authentication popup appears (if not already logged in from Part 5)
+2. Enter username and password
+3. Tuition waiver form displays
+4. Fill required fields (minimum):
+      - Academic Term: Fall
+      - Academic Year: 2024
+      - Student's Name: John Doe
+      - Relationship to Employee: Self
+      - Student's NUID: 123456
+      - Employee's Signature: John Doe
+      - Date: (today's date)
+5. Click "Submit Tuition Waiver Application"
+6. Results page shows all parameters using getParameterNames()
+
+Note: If you tested Part 5 first, login popup will not appear (already
+authenticated). This is expected BASIC authentication behavior.
+
+---
+
+PART 7 - SHOPPING CART:
+-----------------------
+URL: http://localhost:8080/hw2/catalog.html
+Security: Programmatic (Custom login page)
+Login: customer / shop123
+
+Steps:
+1. Product catalog displays
+2. Select items by checking boxes
+3. Click "Add Selected Items to Cart"
+4. Selected items are saved to session
+5. Custom login page appears
+6. Enter username and password
+7. Shopping cart displays with the items you selected
+8. Test features:
+      - Remove items: Click "Remove" button
+      - Update quantities: Change number and click "Update Quantities"
+      - Continue shopping: Select more items, adds to existing cart
+      - Clear cart: Removes all items
+
+================================================================================

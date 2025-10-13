@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Tuition Waiver Form - Part 6</title>
+    <style>
+      body { font-family: system-ui, -apple-system, Arial, sans-serif; margin: 24px; line-height: 1.35; }
+      fieldset { margin: 18px 0; padding: 16px; border-radius: 8px; }
+      legend { font-weight: 700; padding: 0 6px; }
+      label { display: block; margin: 8px 0; }
+      .inline { display: inline-block; margin-right: 14px; }
+      .row { display: flex; flex-wrap: wrap; gap: 12px; }
+      .row > label { flex: 1 1 240px; }
+      table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+      th, td { border: 1px solid #ccc; padding: 6px 8px; text-align: left; }
+      small { color: #666; }
+      button { margin-top: 12px; padding: 10px 16px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 6px; cursor: pointer; font-size: 16px; }
+      button:hover { opacity: 0.9; }
+      h1 { color: #667eea; }
+    </style>
+  </head>
+  <body>
+    <h1>Northeastern University — Tuition Waiver</h1>
+    <p><small>
+      This web form captures all fields from the Tuition Waiver PDF (Sections 1–5). Layout is optimized for screen. 
+      Part 6 - Using Annotations, getParameterNames(), and Declarative Security
+    </small></p>
+
+    <form method="post" action="processTuition">
+      <!-- SECTION 1 -->
+      <fieldset>
+        <legend>Section 1 — Academic Term & Employee Status</legend>
+
+        <div class="row">
+          <label>Academic Term
+            <select name="academicTerm" required>
+              <option value="">-- Select --</option>
+              <option>Fall</option>
+              <option>Winter</option>
+              <option>Spring</option>
+              <option>Summer</option>
+            </select>
+          </label>
+
+          <label>Academic Year
+            <input type="number" name="academicYear" min="2000" max="2100" required>
+          </label>
+        </div>
+
+        <div>
+          <span class="inline"><strong>Employee Status:</strong></span>
+          <label class="inline"><input type="checkbox" name="employeeStatus" value="PT_Staff"> P/T Staff</label>
+          <label class="inline"><input type="checkbox" name="employeeStatus" value="PT_Faculty"> P/T Faculty</label>
+          <label class="inline"><input type="checkbox" name="employeeStatus" value="Retiree"> Retiree</label>
+          <label class="inline"><input type="checkbox" name="employeeStatus" value="Other"> Other</label>
+          <label class="inline">If Other: <input name="employeeStatusOther"></label>
+        </div>
+
+        <p><small>
+          *Terms with multiple sessions are considered one academic term for tuition waiver purposes 
+          (e.g., Summer Sessions I & II are considered one term).
+        </small></p>
+      </fieldset>
+
+      <!-- SECTION 2 -->
+      <fieldset>
+        <legend>Section 2 — Student & Employee Information</legend>
+
+        <div class="row">
+          <label>Student's Name
+            <input name="studentName" placeholder="First Middle Last" required>
+          </label>
+          <label>Relationship to Employee
+            <input name="relationshipToEmployee" placeholder="Self / Spouse / Domestic Partner / Dependent" required>
+          </label>
+          <label>Student's NUID
+            <input name="studentNUID" required>
+          </label>
+        </div>
+
+        <div class="row">
+          <label>Employee's Name (if different from Student's)
+            <input name="employeeName">
+          </label>
+          <label>Employee's NUID
+            <input name="employeeNUID">
+          </label>
+        </div>
+
+        <div class="row">
+          <label>Department
+            <input name="department">
+          </label>
+          <label>Campus Location
+            <input name="campusLocation">
+          </label>
+          <label>Phone Number
+            <input name="phoneNumber">
+          </label>
+          <label>Supervisor's Name
+            <input name="supervisorName">
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- SECTION 3 -->
+      <fieldset>
+        <legend>Section 3 — School / Program & Course Details</legend>
+
+        <div>
+          <strong>Indicate the applicable school or program:</strong><br>
+          <label class="inline"><input type="checkbox" name="program" value="Undergraduate_Program"> Undergraduate Program</label>
+          <label class="inline"><input type="checkbox" name="program" value="Law_School"> Law School (excludes employees)</label>
+          <label class="inline"><input type="checkbox" name="program" value="Doctoral_Candidate"> Doctoral Candidate</label>
+          <label class="inline"><input type="checkbox" name="program" value="CPS_Undergraduate"> CPS Undergraduate</label>
+          <label class="inline"><input type="checkbox" name="program" value="Graduate_School"> Graduate School</label>
+          <label class="inline"><input type="checkbox" name="program" value="CPS_Graduate_School"> CPS Graduate School</label>
+        </div>
+
+        <p><small>
+          One course per academic term may be taken one-half hour before the end of your workday. 
+          If this applies, this form must be signed by your supervisor and approved by Human Resources Management.
+        </small></p>
+
+        <p><strong>Course Information</strong> (add up to three; duplicate rows if needed)</p>
+        <table aria-label="Course details">
+          <thead>
+            <tr>
+              <th>Course No.</th>
+              <th>Course Name</th>
+              <th>Supervisor Signature (name)</th>
+              <th>Credit Hrs.</th>
+              <th>Day(s)</th>
+              <th>Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Row 1 -->
+            <tr>
+              <td><input name="course1Number" placeholder="e.g., CS5004"></td>
+              <td><input name="course1Name" placeholder="e.g., OOD"></td>
+              <td><input name="course1SupervisorSignature" placeholder="Supervisor full name"></td>
+              <td><input type="number" name="course1Credits" min="0" step="0.5"></td>
+              <td>
+                <label class="inline"><input type="checkbox" name="course1Days" value="Mon">Mon</label>
+                <label class="inline"><input type="checkbox" name="course1Days" value="Tue">Tue</label>
+                <label class="inline"><input type="checkbox" name="course1Days" value="Wed">Wed</label>
+                <label class="inline"><input type="checkbox" name="course1Days" value="Thu">Thu</label>
+                <label class="inline"><input type="checkbox" name="course1Days" value="Fri">Fri</label>
+                <label class="inline"><input type="checkbox" name="course1Days" value="Sat">Sat</label>
+                <label class="inline"><input type="checkbox" name="course1Days" value="Sun">Sun</label>
+              </td>
+              <td>
+                <input type="time" name="course1TimeStart"> –
+                <input type="time" name="course1TimeEnd">
+              </td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr>
+              <td><input name="course2Number"></td>
+              <td><input name="course2Name"></td>
+              <td><input name="course2SupervisorSignature"></td>
+              <td><input type="number" name="course2Credits" min="0" step="0.5"></td>
+              <td>
+                <label class="inline"><input type="checkbox" name="course2Days" value="Mon">Mon</label>
+                <label class="inline"><input type="checkbox" name="course2Days" value="Tue">Tue</label>
+                <label class="inline"><input type="checkbox" name="course2Days" value="Wed">Wed</label>
+                <label class="inline"><input type="checkbox" name="course2Days" value="Thu">Thu</label>
+                <label class="inline"><input type="checkbox" name="course2Days" value="Fri">Fri</label>
+                <label class="inline"><input type="checkbox" name="course2Days" value="Sat">Sat</label>
+                <label class="inline"><input type="checkbox" name="course2Days" value="Sun">Sun</label>
+              </td>
+              <td>
+                <input type="time" name="course2TimeStart"> –
+                <input type="time" name="course2TimeEnd">
+              </td>
+            </tr>
+
+            <!-- Row 3 -->
+            <tr>
+              <td><input name="course3Number"></td>
+              <td><input name="course3Name"></td>
+              <td><input name="course3SupervisorSignature"></td>
+              <td><input type="number" name="course3Credits" min="0" step="0.5"></td>
+              <td>
+                <label class="inline"><input type="checkbox" name="course3Days" value="Mon">Mon</label>
+                <label class="inline"><input type="checkbox" name="course3Days" value="Tue">Tue</label>
+                <label class="inline"><input type="checkbox" name="course3Days" value="Wed">Wed</label>
+                <label class="inline"><input type="checkbox" name="course3Days" value="Thu">Thu</label>
+                <label class="inline"><input type="checkbox" name="course3Days" value="Fri">Fri</label>
+                <label class="inline"><input type="checkbox" name="course3Days" value="Sat">Sat</label>
+                <label class="inline"><input type="checkbox" name="course3Days" value="Sun">Sun</label>
+              </td>
+              <td>
+                <input type="time" name="course3TimeStart"> –
+                <input type="time" name="course3TimeEnd">
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p><small>
+          If the course is job-related (employees), attach Job Related Designation info when applicable.
+        </small></p>
+      </fieldset>
+
+      <!-- SECTION 4 -->
+      <fieldset>
+        <legend>Section 4 — Certification</legend>
+        <p>
+          In accordance with Northeastern University's Tuition Waiver Program Guidelines, my signature attests that I am currently
+          enrolled in the above courses, or that the student listed above is my spouse, domestic partner or unmarried dependent child
+          or the dependent child of my domestic partner as defined under current IRS tax regulations. I also certify that I have read
+          the Tuition Waiver Program Guidelines.
+        </p>
+
+        <div class="row">
+          <label>Employee's Signature (type full name)
+            <input name="employeeSignature" required>
+          </label>
+          <label>Date
+            <input type="date" name="employeeSignatureDate" required>
+          </label>
+        </div>
+      </fieldset>
+
+      <!-- SECTION 5 -->
+      <fieldset>
+        <legend>Section 5 — HRM Approval (Office Use)</legend>
+        <div class="row">
+          <label>HRM Approval (name)
+            <input name="hrmApprovalName">
+          </label>
+          <label>Date
+            <input type="date" name="hrmApprovalDate">
+          </label>
+        </div>
+        <p><small>
+          Forms will be reviewed for completeness and eligibility. All waivers must be received by HRM within 30 days of the course start date.
+        </small></p>
+      </fieldset>
+
+      <!-- Attachments note from the PDF -->
+      <fieldset>
+        <legend>Attachments (if any)</legend>
+        <label>Supporting Document
+          <input type="file" name="supportingDocument">
+        </label>
+        <p><small>File uploads aren't processed yet; we'll display only the field name/filename per course guidance.</small></p>
+      </fieldset>
+
+      <button type="submit">Submit Tuition Waiver Application</button>
+    </form>
+  </body>
+</html>
