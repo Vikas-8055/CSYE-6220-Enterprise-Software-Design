@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<taglib version="3.0" 
+        xmlns="https://jakarta.ee/xml/ns/jakartaee"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee 
+        https://jakarta.ee/xml/ns/jakartaee/web-jsptaglibrary_3_0.xsd">
+    
+    <tlib-version>1.0</tlib-version>
+    <short-name>csvtags</short-name>
+    <uri>http://csv.com/tags</uri>
+    
+    <tag>
+        <name>displayCsv</name>
+        <tag-class>com.csv.tags.DisplayCsvTag</tag-class>
+        <body-content>empty</body-content>
+        <attribute>
+            <name>filename</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+</taglib>

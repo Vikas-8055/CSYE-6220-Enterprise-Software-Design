@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise Software Design Assignment - HW3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .assignment-section {
+            margin-bottom: 40px;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 12px;
+            border-left: 5px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .assignment-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+        
+        .part-number {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            font-size: 0.9em;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        .description {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .features {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .features ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .features li {
+            padding: 8px 0;
+            color: #555;
+        }
+        
+        .features li:before {
+            content: "✓ ";
+            color: #4caf50;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 12px 30px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn-secondary {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            color: #666;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .tech-badge {
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 6px 15px;
+            border-radius: 15px;
+            font-size: 0.85em;
+            font-weight: 600;
+        }
+        
+        .icon {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎓 Enterprise Software Design Assignment</h1>
+            <p>Homework 3</p>
+        </div>
+        
+        <!-- Content -->
+        <div class="content">
+            
+            <!-- Part 3: JSTL Tags -->
+            <div class="assignment-section">
+                <span class="part-number">Part 3</span>
+                <div class="icon">🏷️</div>
+                <h2>JSTL Tags Demonstration</h2>
+                <p class="description">
+                    Comprehensive demonstration of JavaServer Pages Standard Tag Library (JSTL) including 
+                    Core, Formatting, and Functions tag libraries with practical examples.
+                </p>
+                <div class="features">
+                    <ul>
+                        <li>Core Tags: c:set, c:if, c:forEach, c:choose</li>
+                        <li>Formatting Tags: fmt:formatNumber, fmt:formatDate, fmt:parseNumber</li>
+                        <li>Function Tags: fn:length, fn:substring, fn:toUpperCase, fn:contains</li>
+                        <li>Real-world examples with student records and data manipulation</li>
+                    </ul>
+                </div>
+                <a href="jstl-demo.jsp" class="btn">View JSTL Demo</a>
+            </div>
+            
+            <!-- Part 6: Movie Store -->
+            <div class="assignment-section">
+                <span class="part-number">Part 6</span>
+                <div class="icon">🎬</div>
+                <h2>Movie Store - CRUD Application</h2>
+                <p class="description">
+                    Full-featured Movie Management System with database integration, implementing 
+                    Model-View-Controller (MVC) architecture with complete CRUD operations.
+                </p>
+                <div class="features">
+                    <ul>
+                        <li><strong>Create:</strong> Add new movies to database</li>
+                        <li><strong>Read:</strong> Browse all movies with beautiful UI</li>
+                        <li><strong>Update:</strong> Edit existing movie details</li>
+                        <li><strong>Delete:</strong> Remove movies from database</li>
+                        <li><strong>Search:</strong> Find movies by title or genre</li>
+                        <li>MySQL database integration with JDBC</li>
+                        <li>Jakarta EE Servlets and JSP with JSTL</li>
+                    </ul>
+                </div>
+                <a href="movieHome.jsp" class="btn">Launch Movie Store</a>
+                <a href="movieController?action=browse" class="btn btn-secondary">Browse Movies</a>
+            </div>
+            
+            <!-- Part 7: Book Entry -->
+            <div class="assignment-section">
+                <span class="part-number">Part 7</span>
+                <div class="icon">📚</div>
+                <h2>Book Entry - PreparedStatement Demo</h2>
+                <p class="description">
+                    Dynamic form generation for adding multiple books to database using PreparedStatement. 
+                    Demonstrates secure database insertion with user-defined quantity of records.
+                </p>
+                <div class="features">
+                    <ul>
+                        <li>Dynamic form generation based on user input</li>
+                        <li>PreparedStatement for secure database insertion</li>
+                        <li>Batch processing of multiple book records</li>
+                        <li>MVC architecture with servlets and JSP</li>
+                    </ul>
+                </div>
+                <a href="askQuantity.jsp" class="btn">Add Books</a>
+            </div>
+            
+            <!-- Part 9: Custom Tag -->
+            <div class="assignment-section">
+                <span class="part-number">Part 9</span>
+                <h2>Custom Tag - CSV Data Display</h2>
+                <p class="description">
+                    Advanced custom tag implementation using CsvJdbc to read and display CSV data. 
+                    Demonstrates custom tag handler development with Tag Library Descriptor (TLD).
+                </p>
+                <div class="features">
+                    <ul>
+                        <li>Custom Tag Handler extending SimpleTagSupport</li>
+                        <li>CsvJdbc integration for CSV file reading</li>
+                        <li>Dynamic HTML table generation in doTag() method</li>
+                        <li>Tag Library Descriptor (TLD) configuration</li>
+                        <li>Displays 1,912 parking facility records</li>
+                        <li>12 columns: Facility Type, License, Entity Name, Address, etc.</li>
+                    </ul>
+                </div>
+                <a href="displayParking.jsp" class="btn">View Parking Facilities</a>
+            </div>
+            
+            <!-- Technology Stack -->
+            <div class="assignment-section" style="border-left-color: #4caf50;">
+                <div class="icon">🛠️</div>
+                <h2>Technology Stack</h2>
+                <p class="description">Technologies and frameworks used in this project:</p>
+                <div class="tech-stack">
+                    <span class="tech-badge">Java 11</span>
+                    <span class="tech-badge">Jakarta EE 10</span>
+                    <span class="tech-badge">JSP & JSTL</span>
+                    <span class="tech-badge">Apache Tomcat</span>
+                    <span class="tech-badge">MySQL 8.x</span>
+                    <span class="tech-badge">Maven</span>
+                    <span class="tech-badge">JDBC</span>
+                    <span class="tech-badge">CsvJdbc</span>
+                    <span class="tech-badge">HTML5 & CSS3</span>
+                    <span class="tech-badge">MVC Architecture</span>
+                    <span class="tech-badge">Custom Tags</span>
+                    <span class="tech-badge">PreparedStatement</span>
+                </div>
+            </div>
+            
+        </div>
+        
+        <!-- Footer -->
+        <div class="footer">
+            <p><strong>HW3</strong></p>
+            <p>Demonstrating JSP, Servlets, Database Integration, JSTL, and Custom Tags</p>
+        </div>
+    </div>
+</body>
+</html>
