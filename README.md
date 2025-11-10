@@ -1,4 +1,4 @@
-# Enterprise Software Design - Course Projects
+# Enterprise Software Design - Course Assignments
 
 **Student:** Vikas Meneni  
 **NUID:** 002309537  
